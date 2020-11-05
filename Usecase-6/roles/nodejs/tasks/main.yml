@@ -1,0 +1,30 @@
+---
+- name: Node.js - Get script
+  get_url:
+    url: "https://deb.nodesource.com/setup_12.x"
+    dest: "{{ var_node }}/nodejs.sh"
+ 
+- name: Node.js - Set execution permission to script
+  file:
+    path: "{{ var_node }}/nodejs.sh"
+    mode: "u+x"
+ 
+- name: Node.js - Execute installation script
+  shell: "{{ var_node }}/nodejs.sh"
+ 
+- name: Node.js - Remove installation script
+  file:
+    path: "{{ var_node}}/nodejs.sh"
+    state: absent
+ 
+- name: Node.js - Install Node.js
+  apt: 
+    name: [ 'build-essential', 'nodejs' ]
+    state: present
+    update_cache: yes
+ 
+- name: Node.js - Install gulp globally
+  npm: 
+    name: gulp
+    state: present 
+    global: yes

@@ -1,0 +1,23 @@
+---
+- name: MongoDB - Import public key
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 0C49F3730359A14518585931BC711F9BA15703C6
+ 
+- name: MongoDB - Add repository
+  apt_repository:
+    filename: '/etc/apt/sources.list.d/mongodb-org-3.4.list'
+    repo: 'deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse'
+    state: present
+    update_cache: yes
+ 
+- name: MongoDB - Install MongoDB
+  apt:
+    name: mongodb-org
+    state: present
+    update_cache: yes
+ 
+- name: MongoDB - Running state
+  service:
+    name: mongod
+    state: started

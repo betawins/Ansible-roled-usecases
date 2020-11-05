@@ -1,0 +1,11 @@
+---
+#MySQL Settings
+mysql_root_password: "demo"
+mysql_db: "wordpress"
+mysql_user: "sabear"
+mysql_password: "Alina@0509"
+
+#HTTP Settings
+http_host: "sabearnhs.tk"
+http_conf: "sabearnhs.tk.conf"
+http_port: "80"

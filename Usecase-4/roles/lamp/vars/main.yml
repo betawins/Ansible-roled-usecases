@@ -1,0 +1,8 @@
+---
+#System Settings
+php_modules: [ 'php-curl', 'php-gd', 'php-mbstring', 'php-xml', 'php-xmlrpc', 'php-soap', 'php-intl', 'php-zip', 'php-mysql' ]
+
+#HTTP Settings
+http_host: "sabearnhs.tk"
+http_conf: "sabearnhs.tk.conf"
+http_port: "80"

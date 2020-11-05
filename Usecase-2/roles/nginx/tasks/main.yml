@@ -1,0 +1,12 @@
+---
+- name: Install nginx
+  apt:
+    name: nginx
+    state: latest
+
+- name: copy index.html page
+  copy:
+     src: index.html
+     dest: /var/www/html
+     mode: 0777
+  notify: restart nginx

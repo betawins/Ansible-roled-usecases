@@ -1,0 +1,22 @@
+---
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: install haproxy
+  apt:
+    name: haproxy
+    state: present
+- name: backup of configuration file
+  copy: 
+    remote_src: true 
+    src: /etc/haproxy/haproxy.cfg
+    dest: /home/ubuntu
+- name : copy the new haproxy.cfg file
+  copy:
+    src: haproxy.cfg 
+    dest: /etc/haproxy/haproxy.cfg 
+    mode: 0777
+  notify: Reload haproxy 
+

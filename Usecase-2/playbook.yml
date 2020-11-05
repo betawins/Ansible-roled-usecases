@@ -1,0 +1,12 @@
+---
+- name: Installation of HAproxy
+  hosts : loadbalancer
+  become: yes
+  roles:
+    - haproxy
+
+- name: Installtion of nginx servers
+  hosts: webserver
+  become: yes
+  roles: 
+    - nginx
